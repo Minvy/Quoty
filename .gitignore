@@ -1,0 +1,6 @@
+List.txt
+login_service/node_modules
+quote_service/node_modules
+quoty/node_modules
+login_service/config/keys.js
+quote_service/config/keys.js
