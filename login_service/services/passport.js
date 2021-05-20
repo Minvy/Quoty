@@ -2,6 +2,15 @@ const passport = require('passport');
 const GoogleStrategy = require('passport-google-oauth20').Strategy;
 const keys = require('../config/keys');
 
+passport.serializeUser((user, done) => {
+    //passes to deserialize user
+    done(null, user);
+});
+
+passport.deserializeUser((id, done) => {
+    done(null, id);
+});
+
 passport.use(new GoogleStrategy({
     clientID: keys.CLIENTID,
     clientSecret: keys.CLIENTSECRET,
@@ -9,6 +18,7 @@ passport.use(new GoogleStrategy({
 },
     //This gets called when google initialises callbackURL
     (accessToken, refreshToken, profile, done) => {
-        //Creates one model instance of a record, .save() will save the instance to the database
-
+        console.log(profile.id);
+        //Passes user id to serialize user
+        done(null, profile.id)
     }));
