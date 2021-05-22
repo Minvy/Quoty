@@ -2,6 +2,7 @@ const express = require('express');
 const keys = require('./config/keys');
 const passport = require('passport');
 const cookieSession = require('cookie-session');
+const authRoutes = require('./routes/authRoutes');
 
 //To run passport.js config we must require it, it wont run automatically
 require('./services/passport');
@@ -14,29 +15,11 @@ app.use(cookieSession({
 }));
 
 // Init passport
-
 app.use(passport.initialize());
 app.use(passport.session());
 
-app.get('/auth/google',
-    passport.authenticate('google', {
-        scope: ['profile', 'email']
-    })
-)
-
-app.get('/auth/google/callback',
-    passport.authenticate('google', {
-        successRedirect: '/auth/google/success',
-        failureRedirect: '/auth/google/failure'
-    }));
-
-app.get('/auth/google/success', (req, res) => {
-    res.status(200).send({ status: 'OK' });
-});
-
-app.get('/auth/google/failure', (req, res) => {
-    res.status(401).send({ status: 'Unauthorised' });
-});
+// Init route file
+app.use('/auth', authRoutes);
 
 app.listen(5001, () => {
     console.log('Listening on 5001')

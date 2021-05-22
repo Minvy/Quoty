@@ -18,7 +18,6 @@ passport.use(new GoogleStrategy({
 },
     //This gets called when google initialises callbackURL
     (accessToken, refreshToken, profile, done) => {
-        console.log(profile.id);
         //Passes user id to serialize user
         done(null, profile.id)
     }));
