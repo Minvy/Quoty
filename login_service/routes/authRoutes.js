@@ -13,8 +13,7 @@ router.get('/google/callback',
         failureRedirect: '/auth/google/failure'
     }));
 
-    router.get('/google/success', (req, res) => {
-    console.log(req.user);
+router.get('/google/success', (req, res) => {
     res.status(200).send({ status: 'OK' });
 });
 

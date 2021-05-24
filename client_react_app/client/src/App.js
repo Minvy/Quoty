@@ -1,9 +1,11 @@
 
+import Button from '@material-ui/core/Button';
+
 function App() {
   return (
-    <button>
+    <Button color="primary">
       <a href="http://localhost:5001/auth/google">Login with google</a>
-    </button>
+    </Button>
   );
 }
 

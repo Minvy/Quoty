@@ -3,6 +3,7 @@ const keys = require('./config/keys');
 const passport = require('passport');
 const cookieSession = require('cookie-session');
 const authRoutes = require('./routes/authRoutes');
+const sessionRoutes = require('./routes/sessionRoutes')
 
 //To run passport.js config we must require it, it wont run automatically
 require('./services/passport');
@@ -20,6 +21,7 @@ app.use(passport.session());
 
 // Init route file
 app.use('/auth', authRoutes);
+app.use('/session', sessionRoutes);
 
 app.listen(5001, () => {
     console.log('Listening on 5001')

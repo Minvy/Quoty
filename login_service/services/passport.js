@@ -7,8 +7,8 @@ passport.serializeUser((user, done) => {
     done(null, user);
 });
 
-passport.deserializeUser((id, done) => {
-    done(null, id);
+passport.deserializeUser((user, done) => {
+    done(null, user);
 });
 
 passport.use(new GoogleStrategy({
@@ -19,5 +19,12 @@ passport.use(new GoogleStrategy({
     //This gets called when google initialises callbackURL
     (accessToken, refreshToken, profile, done) => {
         //Passes user id to serialize user
-        done(null, profile.id)
+
+        const user = {
+            id: profile.id,
+            name: profile.displayName,
+            avatar: profile.photos[0].value
+        }
+
+        done(null, user)
     }));
