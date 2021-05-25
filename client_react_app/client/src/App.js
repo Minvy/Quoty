@@ -1,11 +1,12 @@
 
-import Button from '@material-ui/core/Button';
+import HomePage from './pages/HomePage'
+import Paper from '@material-ui/core/Paper'
 
 function App() {
   return (
-    <Button color="primary">
-      <a href="http://localhost:5001/auth/google">Login with google</a>
-    </Button>
+    <Paper>
+      <HomePage />
+    </Paper>
   );
 }
 
