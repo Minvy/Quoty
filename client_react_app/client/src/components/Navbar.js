@@ -6,7 +6,7 @@ export default function Navbar() {
 
     const [username, setUserame] = useState('Bobby')
 
-    const padding = {
+    const containerPadding = {
         padding: 10
     }
 
@@ -16,7 +16,7 @@ export default function Navbar() {
             spacing={3}
             direction="row-reverse"
             align="center"
-            style={padding}
+            style={containerPadding}
         >
             <RightDrawer />
             <h4>Hi {username}</h4>
