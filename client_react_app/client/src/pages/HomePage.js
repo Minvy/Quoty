@@ -3,6 +3,7 @@ import Container from '@material-ui/core/Container';
 import Navbar from '../components/Navbar'
 import Divider from '@material-ui/core/Divider';
 import { useSelector, useDispatch } from 'react-redux';
+import { Increment } from '../store/actions/authActions';
 
 export default function HomePage() {
 
@@ -17,7 +18,11 @@ export default function HomePage() {
             <Navbar />
             <Divider />
             <Container>
+                <button onClick={() => {
+                    dispatch(Increment);
+                }}></button>
                 <div style={container}>
+                    <p>{counter}</p>
                     <p>"The way to get started is to quit talking and begin doing."</p>
                     <p>Walt Disney</p>
                 </div>

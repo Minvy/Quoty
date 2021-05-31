@@ -1,1 +1,1 @@
-export const Increment = { type: 'TEST', data: "Test" }
+export const Increment = { type: 'INCREMENT', data: "Test" }
